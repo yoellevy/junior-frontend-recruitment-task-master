@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet", href="RadioStyleSheet.css">
+
+</head>
+<body>
+
+<div>
+
+
+<!--
+	<div class = "roundedTopElement">
+
+		<img class = "backImg" src="imgs\back-arrow.png" alt="Back">
+		<p class="textStyle">STATIONS</p>
+		<img class = "resImage"  src="imgs\switch.png" alt="Switch">
+	</div>
+	<div class = "roundedbottomElement">
+	hi
+	</div>
+	-->
+	
+<div class="upperBoundDiv">
+  	<img id = "backImg" src="imgs\back-arrow.png" alt="Back" onclick="doNothingFunc()">
+	<div class="textStyle">STATIONS</div>
+	<img id = "resImage"  src="imgs\switch.png" alt="Switch">
+</div>
+<div class="radioContainerDiv" id="radioContainer">
+	
+</div>
+<div class="lowerBoundDiv">
+	<div class="textStyle"></div>
+</div>
+
+
+
+<script>
+var radioStations = ["GLGLTZ","107FM","Tel Aviv","102FM","ECO","99FM","Radius 100FM","100FM","88FM","88FM"];
+var radioAmount = radioStations.length;
+
+for (var i=0;i<radioAmount;i+=2) {
+	var currentRadio = "<div>";
+	
+	currentRadio+= "<div id=\"radio"+i+"\" class=\"radioPropDiv\">	";
+	
+	currentRadio+= "<img src=\"imgs\\minus.png\" alt=\"minus\" class=\"minusImg\"/>";
+	currentRadio+= "<img src=\"imgs\\avatar.jpg\" alt=\"avatar\" class=\"radioImg\"/>";
+	currentRadio+= "<img src=\"imgs\\plus.png\" alt=\"plus\" class=\"plusImg\"/>";
+	currentRadio+="</div>";
+	
+	currentRadio+="<div class=\"radioNameDiv\" onclick=\"toggleRadio("+i+")\">";
+	currentRadio+="<div class=\"radioTextStyle\">"+radioStations[i]+"</div>";
+	
+	currentRadio+="<div class=\"radioFMStyle\">"+radioStations[i+1]+"</div>";
+	
+	currentRadio+="</div>";
+	currentRadio+= "</div>";
+	document.getElementById("radioContainer").innerHTML += currentRadio;
+}
+
+
+function doNothingFunc() {
+  
+}
+var last = -1;
+function toggleRadio(intVal){
+	if(last !== -1 && intVal!==last)
+	{
+		document.getElementById("radio"+last).classList.toggle("show");
+	}
+	
+	document.getElementById("radio"+intVal).classList.toggle("show");
+	if(intVal === last)
+	{
+		last=-1;
+		return;
+	}
+	last = intVal;
+}
+</script>
+
+</div>
+</body>
+</html>
