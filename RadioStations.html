@@ -40,15 +40,16 @@ var radioStations = ["GLGLTZ","107FM","Tel Aviv","102FM","ECO","99FM","Radius 10
 var radioAmount = radioStations.length;
 
 for (var i=0;i<radioAmount;i+=2) {
+// here I create the radio stations
 	var currentRadio = "<div>";
-	
+	// here is the div containing the plus minus and radio station images
 	currentRadio+= "<div id=\"radio"+i+"\" class=\"radioPropDiv\">	";
 	
 	currentRadio+= "<img src=\"imgs\\minus.png\" alt=\"minus\" class=\"minusImg\"/>";
 	currentRadio+= "<img src=\"imgs\\avatar.jpg\" alt=\"avatar\" class=\"radioImg\"/>";
 	currentRadio+= "<img src=\"imgs\\plus.png\" alt=\"plus\" class=\"plusImg\"/>";
 	currentRadio+="</div>";
-	
+	// here is the div which is clickable which toggle the apperance of the div above.
 	currentRadio+="<div class=\"radioNameDiv\" onclick=\"toggleRadio("+i+")\">";
 	currentRadio+="<div class=\"radioTextStyle\">"+radioStations[i]+"</div>";
 	
